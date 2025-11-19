@@ -1,0 +1,40 @@
+
+build/riscv/functions.o:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <add>:
+   0:	1101                	addi	sp,sp,-32
+   2:	ec22                	sd	s0,24(sp)
+   4:	1000                	addi	s0,sp,32
+   6:	87aa                	mv	a5,a0
+   8:	872e                	mv	a4,a1
+   a:	fef42623          	sw	a5,-20(s0)
+   e:	87ba                	mv	a5,a4
+  10:	fef42423          	sw	a5,-24(s0)
+  14:	fec42783          	lw	a5,-20(s0)
+  18:	873e                	mv	a4,a5
+  1a:	fe842783          	lw	a5,-24(s0)
+  1e:	9fb9                	addw	a5,a5,a4
+  20:	2781                	sext.w	a5,a5
+  22:	853e                	mv	a0,a5
+  24:	6462                	ld	s0,24(sp)
+  26:	6105                	addi	sp,sp,32
+  28:	8082                	ret
+
+000000000000002a <wrapper>:
+  2a:	1141                	addi	sp,sp,-16
+  2c:	e406                	sd	ra,8(sp)
+  2e:	e022                	sd	s0,0(sp)
+  30:	0800                	addi	s0,sp,16
+  32:	45d1                	li	a1,20
+  34:	4529                	li	a0,10
+  36:	00000097          	auipc	ra,0x0
+  3a:	000080e7          	jalr	ra # 36 <wrapper+0xc>
+  3e:	87aa                	mv	a5,a0
+  40:	853e                	mv	a0,a5
+  42:	60a2                	ld	ra,8(sp)
+  44:	6402                	ld	s0,0(sp)
+  46:	0141                	addi	sp,sp,16
+  48:	8082                	ret

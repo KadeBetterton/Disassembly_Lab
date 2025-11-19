@@ -1,0 +1,19 @@
+
+build/riscv/pointers.o:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <pointer>:
+   0:	1101                	addi	sp,sp,-32
+   2:	ec22                	sd	s0,24(sp)
+   4:	1000                	addi	s0,sp,32
+   6:	fea43423          	sd	a0,-24(s0)
+   a:	fe843783          	ld	a5,-24(s0)
+   e:	439c                	lw	a5,0(a5)
+  10:	278d                	addiw	a5,a5,3
+  12:	2781                	sext.w	a5,a5
+  14:	853e                	mv	a0,a5
+  16:	6462                	ld	s0,24(sp)
+  18:	6105                	addi	sp,sp,32
+  1a:	8082                	ret

@@ -1,0 +1,31 @@
+
+build/mips/arithmetic.o:     file format elf32-tradbigmips
+
+
+Disassembly of section .text:
+
+00000000 <compute>:
+   0:	27bdfff0 	addiu	sp,sp,-16
+   4:	afbe000c 	sw	s8,12(sp)
+   8:	03a0f025 	move	s8,sp
+   c:	afc40010 	sw	a0,16(s8)
+  10:	afc50014 	sw	a1,20(s8)
+  14:	8fc20010 	lw	v0,16(s8)
+  18:	00021080 	sll	v0,v0,0x2
+  1c:	afc20004 	sw	v0,4(s8)
+  20:	8fc30004 	lw	v1,4(s8)
+  24:	8fc20014 	lw	v0,20(s8)
+  28:	0043102a 	slt	v0,v0,v1
+  2c:	10400005 	beqz	v0,44 <compute+0x44>
+  30:	00000000 	nop
+  34:	8fc30004 	lw	v1,4(s8)
+  38:	8fc20014 	lw	v0,20(s8)
+  3c:	00621023 	subu	v0,v1,v0
+  40:	afc20004 	sw	v0,4(s8)
+  44:	8fc20004 	lw	v0,4(s8)
+  48:	03c0e825 	move	sp,s8
+  4c:	8fbe000c 	lw	s8,12(sp)
+  50:	27bd0010 	addiu	sp,sp,16
+  54:	03e00008 	jr	ra
+  58:	00000000 	nop
+  5c:	00000000 	nop

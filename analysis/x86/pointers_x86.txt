@@ -1,0 +1,16 @@
+
+build/x86/pointers.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <pointer>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+   c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  10:	8b 00                	mov    (%rax),%eax
+  12:	83 c0 03             	add    $0x3,%eax
+  15:	5d                   	pop    %rbp
+  16:	c3                   	ret

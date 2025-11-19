@@ -1,0 +1,37 @@
+
+build/mips/functions.o:     file format elf32-tradbigmips
+
+
+Disassembly of section .text:
+
+00000000 <add>:
+   0:	27bdfff8 	addiu	sp,sp,-8
+   4:	afbe0004 	sw	s8,4(sp)
+   8:	03a0f025 	move	s8,sp
+   c:	afc40008 	sw	a0,8(s8)
+  10:	afc5000c 	sw	a1,12(s8)
+  14:	8fc30008 	lw	v1,8(s8)
+  18:	8fc2000c 	lw	v0,12(s8)
+  1c:	00621021 	addu	v0,v1,v0
+  20:	03c0e825 	move	sp,s8
+  24:	8fbe0004 	lw	s8,4(sp)
+  28:	27bd0008 	addiu	sp,sp,8
+  2c:	03e00008 	jr	ra
+  30:	00000000 	nop
+
+00000034 <wrapper>:
+  34:	27bdffe0 	addiu	sp,sp,-32
+  38:	afbf001c 	sw	ra,28(sp)
+  3c:	afbe0018 	sw	s8,24(sp)
+  40:	03a0f025 	move	s8,sp
+  44:	24050014 	li	a1,20
+  48:	2404000a 	li	a0,10
+  4c:	0c000000 	jal	0 <add>
+  50:	00000000 	nop
+  54:	03c0e825 	move	sp,s8
+  58:	8fbf001c 	lw	ra,28(sp)
+  5c:	8fbe0018 	lw	s8,24(sp)
+  60:	27bd0020 	addiu	sp,sp,32
+  64:	03e00008 	jr	ra
+  68:	00000000 	nop
+  6c:	00000000 	nop

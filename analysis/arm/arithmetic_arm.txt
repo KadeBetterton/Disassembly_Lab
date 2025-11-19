@@ -1,0 +1,28 @@
+
+build/arm/arithmetic.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <compute>:
+   0:	e52db004 	push	{fp}		@ (str fp, [sp, #-4]!)
+   4:	e28db000 	add	fp, sp, #0
+   8:	e24dd014 	sub	sp, sp, #20
+   c:	e50b0010 	str	r0, [fp, #-16]
+  10:	e50b1014 	str	r1, [fp, #-20]	@ 0xffffffec
+  14:	e51b3010 	ldr	r3, [fp, #-16]
+  18:	e1a03103 	lsl	r3, r3, #2
+  1c:	e50b3008 	str	r3, [fp, #-8]
+  20:	e51b2008 	ldr	r2, [fp, #-8]
+  24:	e51b3014 	ldr	r3, [fp, #-20]	@ 0xffffffec
+  28:	e1520003 	cmp	r2, r3
+  2c:	da000003 	ble	40 <compute+0x40>
+  30:	e51b2008 	ldr	r2, [fp, #-8]
+  34:	e51b3014 	ldr	r3, [fp, #-20]	@ 0xffffffec
+  38:	e0423003 	sub	r3, r2, r3
+  3c:	e50b3008 	str	r3, [fp, #-8]
+  40:	e51b3008 	ldr	r3, [fp, #-8]
+  44:	e1a00003 	mov	r0, r3
+  48:	e28bd000 	add	sp, fp, #0
+  4c:	e49db004 	pop	{fp}		@ (ldr fp, [sp], #4)
+  50:	e12fff1e 	bx	lr

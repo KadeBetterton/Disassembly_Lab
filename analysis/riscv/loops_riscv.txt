@@ -1,0 +1,46 @@
+
+build/riscv/loops.o:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <loop>:
+   0:	7179                	addi	sp,sp,-48
+   2:	f422                	sd	s0,40(sp)
+   4:	1800                	addi	s0,sp,48
+   6:	fca43c23          	sd	a0,-40(s0)
+   a:	87ae                	mv	a5,a1
+   c:	fcf42a23          	sw	a5,-44(s0)
+  10:	fe042423          	sw	zero,-24(s0)
+
+0000000000000014 <.LBB2>:
+  14:	fe042623          	sw	zero,-20(s0)
+  18:	a015                	j	3c <.L2>
+
+000000000000001a <.L3>:
+  1a:	fec42783          	lw	a5,-20(s0)
+  1e:	078a                	slli	a5,a5,0x2
+  20:	fd843703          	ld	a4,-40(s0)
+  24:	97ba                	add	a5,a5,a4
+  26:	439c                	lw	a5,0(a5)
+  28:	fe842703          	lw	a4,-24(s0)
+  2c:	9fb9                	addw	a5,a5,a4
+  2e:	fef42423          	sw	a5,-24(s0)
+  32:	fec42783          	lw	a5,-20(s0)
+  36:	2785                	addiw	a5,a5,1
+  38:	fef42623          	sw	a5,-20(s0)
+
+000000000000003c <.L2>:
+  3c:	fec42783          	lw	a5,-20(s0)
+  40:	873e                	mv	a4,a5
+  42:	fd442783          	lw	a5,-44(s0)
+  46:	2701                	sext.w	a4,a4
+  48:	2781                	sext.w	a5,a5
+  4a:	fcf748e3          	blt	a4,a5,1a <.L3>
+
+000000000000004e <.LBE2>:
+  4e:	fe842783          	lw	a5,-24(s0)
+  52:	853e                	mv	a0,a5
+  54:	7422                	ld	s0,40(sp)
+  56:	6145                	addi	sp,sp,48
+  58:	8082                	ret

@@ -1,0 +1,36 @@
+
+build/riscv/arithmetic.o:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <compute>:
+   0:	7179                	addi	sp,sp,-48
+   2:	f422                	sd	s0,40(sp)
+   4:	1800                	addi	s0,sp,48
+   6:	87aa                	mv	a5,a0
+   8:	872e                	mv	a4,a1
+   a:	fcf42e23          	sw	a5,-36(s0)
+   e:	87ba                	mv	a5,a4
+  10:	fcf42c23          	sw	a5,-40(s0)
+  14:	fdc42783          	lw	a5,-36(s0)
+  18:	0027979b          	slliw	a5,a5,0x2
+  1c:	fef42623          	sw	a5,-20(s0)
+  20:	fec42783          	lw	a5,-20(s0)
+  24:	873e                	mv	a4,a5
+  26:	fd842783          	lw	a5,-40(s0)
+  2a:	2701                	sext.w	a4,a4
+  2c:	2781                	sext.w	a5,a5
+  2e:	00e7db63          	bge	a5,a4,44 <.L2>
+  32:	fec42783          	lw	a5,-20(s0)
+  36:	873e                	mv	a4,a5
+  38:	fd842783          	lw	a5,-40(s0)
+  3c:	40f707bb          	subw	a5,a4,a5
+  40:	fef42623          	sw	a5,-20(s0)
+
+0000000000000044 <.L2>:
+  44:	fec42783          	lw	a5,-20(s0)
+  48:	853e                	mv	a0,a5
+  4a:	7422                	ld	s0,40(sp)
+  4c:	6145                	addi	sp,sp,48
+  4e:	8082                	ret

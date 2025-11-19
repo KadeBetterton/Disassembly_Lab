@@ -1,0 +1,17 @@
+
+build/x86/structs.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <pack>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+   c:	8b 55 f8             	mov    -0x8(%rbp),%edx
+   f:	0f b6 45 fc          	movzbl -0x4(%rbp),%eax
+  13:	0f be c0             	movsbl %al,%eax
+  16:	01 d0                	add    %edx,%eax
+  18:	5d                   	pop    %rbp
+  19:	c3                   	ret

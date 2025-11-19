@@ -1,0 +1,23 @@
+
+build/x86/arithmetic.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <compute>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	89 7d ec             	mov    %edi,-0x14(%rbp)
+   b:	89 75 e8             	mov    %esi,-0x18(%rbp)
+   e:	8b 45 ec             	mov    -0x14(%rbp),%eax
+  11:	c1 e0 02             	shl    $0x2,%eax
+  14:	89 45 fc             	mov    %eax,-0x4(%rbp)
+  17:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  1a:	3b 45 e8             	cmp    -0x18(%rbp),%eax
+  1d:	7e 06                	jle    25 <compute+0x25>
+  1f:	8b 45 e8             	mov    -0x18(%rbp),%eax
+  22:	29 45 fc             	sub    %eax,-0x4(%rbp)
+  25:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  28:	5d                   	pop    %rbp
+  29:	c3                   	ret

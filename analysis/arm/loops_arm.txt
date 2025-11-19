@@ -1,0 +1,37 @@
+
+build/arm/loops.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <loop>:
+   0:	e52db004 	push	{fp}		@ (str fp, [sp, #-4]!)
+   4:	e28db000 	add	fp, sp, #0
+   8:	e24dd014 	sub	sp, sp, #20
+   c:	e50b0010 	str	r0, [fp, #-16]
+  10:	e50b1014 	str	r1, [fp, #-20]	@ 0xffffffec
+  14:	e3a03000 	mov	r3, #0
+  18:	e50b300c 	str	r3, [fp, #-12]
+  1c:	e3a03000 	mov	r3, #0
+  20:	e50b3008 	str	r3, [fp, #-8]
+  24:	ea00000a 	b	54 <loop+0x54>
+  28:	e51b3008 	ldr	r3, [fp, #-8]
+  2c:	e1a03103 	lsl	r3, r3, #2
+  30:	e51b2010 	ldr	r2, [fp, #-16]
+  34:	e0823003 	add	r3, r2, r3
+  38:	e5933000 	ldr	r3, [r3]
+  3c:	e51b200c 	ldr	r2, [fp, #-12]
+  40:	e0823003 	add	r3, r2, r3
+  44:	e50b300c 	str	r3, [fp, #-12]
+  48:	e51b3008 	ldr	r3, [fp, #-8]
+  4c:	e2833001 	add	r3, r3, #1
+  50:	e50b3008 	str	r3, [fp, #-8]
+  54:	e51b2008 	ldr	r2, [fp, #-8]
+  58:	e51b3014 	ldr	r3, [fp, #-20]	@ 0xffffffec
+  5c:	e1520003 	cmp	r2, r3
+  60:	bafffff0 	blt	28 <loop+0x28>
+  64:	e51b300c 	ldr	r3, [fp, #-12]
+  68:	e1a00003 	mov	r0, r3
+  6c:	e28bd000 	add	sp, fp, #0
+  70:	e49db004 	pop	{fp}		@ (ldr fp, [sp], #4)
+  74:	e12fff1e 	bx	lr

@@ -1,0 +1,19 @@
+
+build/mips/pointers.o:     file format elf32-tradbigmips
+
+
+Disassembly of section .text:
+
+00000000 <pointer>:
+   0:	27bdfff8 	addiu	sp,sp,-8
+   4:	afbe0004 	sw	s8,4(sp)
+   8:	03a0f025 	move	s8,sp
+   c:	afc40008 	sw	a0,8(s8)
+  10:	8fc20008 	lw	v0,8(s8)
+  14:	8c420000 	lw	v0,0(v0)
+  18:	24420003 	addiu	v0,v0,3
+  1c:	03c0e825 	move	sp,s8
+  20:	8fbe0004 	lw	s8,4(sp)
+  24:	27bd0008 	addiu	sp,sp,8
+  28:	03e00008 	jr	ra
+  2c:	00000000 	nop

@@ -1,0 +1,19 @@
+
+build/arm/structs.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <pack>:
+   0:	e52db004 	push	{fp}		@ (str fp, [sp, #-4]!)
+   4:	e28db000 	add	fp, sp, #0
+   8:	e24dd00c 	sub	sp, sp, #12
+   c:	e24b300c 	sub	r3, fp, #12
+  10:	e8830003 	stm	r3, {r0, r1}
+  14:	e51b300c 	ldr	r3, [fp, #-12]
+  18:	e55b2008 	ldrb	r2, [fp, #-8]
+  1c:	e0833002 	add	r3, r3, r2
+  20:	e1a00003 	mov	r0, r3
+  24:	e28bd000 	add	sp, fp, #0
+  28:	e49db004 	pop	{fp}		@ (ldr fp, [sp], #4)
+  2c:	e12fff1e 	bx	lr

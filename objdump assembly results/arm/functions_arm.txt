@@ -1,5 +1,5 @@
 
-build/arm/functions.o:     file format elf32-littlearm
+executables/arm/functions.o:     file format elf32-littlearm
 
 
 Disassembly of section .text:

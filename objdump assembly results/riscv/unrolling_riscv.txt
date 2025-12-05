@@ -1,0 +1,165 @@
+
+executables/riscv/unrolling.o:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <compute_sum>:
+   0:	02a502bb          	mulw	t0,a0,a0
+
+0000000000000004 <.LBE5>:
+   4:	1141                	addi	sp,sp,-16
+
+0000000000000006 <.LBB24>:
+   6:	0015061b          	addiw	a2,a0,1
+
+000000000000000a <.LBE24>:
+   a:	e026                	sd	s1,0(sp)
+
+000000000000000c <.LBB25>:
+   c:	0016149b          	slliw	s1,a2,0x1
+
+0000000000000010 <.LBB26>:
+  10:	0025069b          	addiw	a3,a0,2
+
+0000000000000014 <.LBE26>:
+  14:	e422                	sd	s0,8(sp)
+
+0000000000000016 <.LBB27>:
+  16:	0016941b          	slliw	s0,a3,0x1
+
+000000000000001a <.LBB28>:
+  1a:	0035071b          	addiw	a4,a0,3
+
+000000000000001e <.LBB29>:
+  1e:	0015159b          	slliw	a1,a0,0x1
+  22:	02c6063b          	mulw	a2,a2,a2
+  26:	00e282bb          	addw	t0,t0,a4
+  2a:	0017139b          	slliw	t2,a4,0x1
+  2e:	00b2c2b3          	xor	t0,t0,a1
+
+0000000000000032 <.LBB30>:
+  32:	0045079b          	addiw	a5,a0,4
+
+0000000000000036 <.LBB10>:
+  36:	00179f1b          	slliw	t5,a5,0x1
+
+000000000000003a <.LBB32>:
+  3a:	00550f9b          	addiw	t6,a0,5
+
+000000000000003e <.LBB11>:
+  3e:	001f9e9b          	slliw	t4,t6,0x1
+
+0000000000000042 <.LBB34>:
+  42:	0065081b          	addiw	a6,a0,6
+
+0000000000000046 <.LBB12>:
+  46:	00181e1b          	slliw	t3,a6,0x1
+  4a:	02d686bb          	mulw	a3,a3,a3
+  4e:	0056063b          	addw	a2,a2,t0
+  52:	9e3d                	addw	a2,a2,a5
+  54:	8e25                	xor	a2,a2,s1
+
+0000000000000056 <.LBB36>:
+  56:	0075059b          	addiw	a1,a0,7
+
+000000000000005a <.LBB13>:
+  5a:	0015929b          	slliw	t0,a1,0x1
+  5e:	0085031b          	addiw	t1,a0,8
+  62:	0095089b          	addiw	a7,a0,9
+  66:	2529                	addiw	a0,a0,10
+
+0000000000000068 <.LBE15>:
+  68:	6482                	ld	s1,0(sp)
+
+000000000000006a <.LBB16>:
+  6a:	02e7073b          	mulw	a4,a4,a4
+  6e:	9eb1                	addw	a3,a3,a2
+
+0000000000000070 <.LVL9>:
+  70:	01f686bb          	addw	a3,a3,t6
+
+0000000000000074 <.LVL10>:
+  74:	8ea1                	xor	a3,a3,s0
+
+0000000000000076 <.LBB17>:
+  76:	6422                	ld	s0,8(sp)
+  78:	0141                	addi	sp,sp,16
+
+000000000000007a <.LBB18>:
+  7a:	02f787bb          	mulw	a5,a5,a5
+  7e:	9f35                	addw	a4,a4,a3
+
+0000000000000080 <.LVL12>:
+  80:	0107073b          	addw	a4,a4,a6
+
+0000000000000084 <.LVL13>:
+  84:	00774733          	xor	a4,a4,t2
+
+0000000000000088 <.LBB19>:
+  88:	03ff8fbb          	mulw	t6,t6,t6
+  8c:	9fb9                	addw	a5,a5,a4
+
+000000000000008e <.LVL15>:
+  8e:	9fad                	addw	a5,a5,a1
+
+0000000000000090 <.LVL16>:
+  90:	01e7c7b3          	xor	a5,a5,t5
+
+0000000000000094 <.LBB20>:
+  94:	0308083b          	mulw	a6,a6,a6
+  98:	00ff8fbb          	addw	t6,t6,a5
+
+000000000000009c <.LVL18>:
+  9c:	01f3033b          	addw	t1,t1,t6
+
+00000000000000a0 <.LVL19>:
+  a0:	01d34333          	xor	t1,t1,t4
+
+00000000000000a4 <.LBB21>:
+  a4:	02b585bb          	mulw	a1,a1,a1
+  a8:	0068083b          	addw	a6,a6,t1
+
+00000000000000ac <.LVL21>:
+  ac:	010888bb          	addw	a7,a7,a6
+
+00000000000000b0 <.LVL22>:
+  b0:	01c8c8b3          	xor	a7,a7,t3
+
+00000000000000b4 <.LBB22>:
+  b4:	011585bb          	addw	a1,a1,a7
+
+00000000000000b8 <.LVL24>:
+  b8:	9d2d                	addw	a0,a0,a1
+
+00000000000000ba <.LBB23>:
+  ba:	00554533          	xor	a0,a0,t0
+
+00000000000000be <.LBE23>:
+  be:	2501                	sext.w	a0,a0
+  c0:	8082                	ret
+
+Disassembly of section .text.startup:
+
+0000000000000000 <main>:
+   0:	1141                	addi	sp,sp,-16
+   2:	06400513          	li	a0,100
+   6:	e406                	sd	ra,8(sp)
+   8:	00000097          	auipc	ra,0x0
+   c:	000080e7          	jalr	ra # 8 <main+0x8>
+
+0000000000000010 <.LBB41>:
+  10:	862a                	mv	a2,a0
+
+0000000000000012 <.LBB44>:
+  12:	00000597          	auipc	a1,0x0
+  16:	00058593          	mv	a1,a1
+  1a:	4509                	li	a0,2
+  1c:	00000097          	auipc	ra,0x0
+  20:	000080e7          	jalr	ra # 1c <.LBB44+0xa>
+
+0000000000000024 <.LBE44>:
+  24:	60a2                	ld	ra,8(sp)
+  26:	4501                	li	a0,0
+  28:	0141                	addi	sp,sp,16
+  2a:	8082                	ret

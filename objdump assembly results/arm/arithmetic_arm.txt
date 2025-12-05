@@ -1,5 +1,5 @@
 
-build/arm/arithmetic.o:     file format elf32-littlearm
+executables/arm/arithmetic.o:     file format elf32-littlearm
 
 
 Disassembly of section .text:

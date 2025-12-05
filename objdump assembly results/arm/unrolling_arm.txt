@@ -1,0 +1,56 @@
+
+executables/arm/unrolling.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <compute_sum>:
+   0:	e280c003 	add	ip, r0, #3
+   4:	e023c090 	mla	r3, r0, r0, ip
+   8:	e2801001 	add	r1, r0, #1
+   c:	e0233080 	eor	r3, r3, r0, lsl #1
+  10:	e0233191 	mla	r3, r1, r1, r3
+  14:	e2802004 	add	r2, r0, #4
+  18:	e0833002 	add	r3, r3, r2
+  1c:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+  20:	e0233081 	eor	r3, r3, r1, lsl #1
+  24:	e280e002 	add	lr, r0, #2
+  28:	e0233e9e 	mla	r3, lr, lr, r3
+  2c:	e2801005 	add	r1, r0, #5
+  30:	e0833001 	add	r3, r3, r1
+  34:	e023308e 	eor	r3, r3, lr, lsl #1
+  38:	e0233c9c 	mla	r3, ip, ip, r3
+  3c:	e280e006 	add	lr, r0, #6
+  40:	e083300e 	add	r3, r3, lr
+  44:	e023308c 	eor	r3, r3, ip, lsl #1
+  48:	e0233292 	mla	r3, r2, r2, r3
+  4c:	e280c007 	add	ip, r0, #7
+  50:	e08c3003 	add	r3, ip, r3
+  54:	e0233082 	eor	r3, r3, r2, lsl #1
+  58:	e0233191 	mla	r3, r1, r1, r3
+  5c:	e2802008 	add	r2, r0, #8
+  60:	e0822003 	add	r2, r2, r3
+  64:	e0222081 	eor	r2, r2, r1, lsl #1
+  68:	e0222e9e 	mla	r2, lr, lr, r2
+  6c:	e2803009 	add	r3, r0, #9
+  70:	e0833002 	add	r3, r3, r2
+  74:	e023308e 	eor	r3, r3, lr, lsl #1
+  78:	e0233c9c 	mla	r3, ip, ip, r3
+  7c:	e280000a 	add	r0, r0, #10
+  80:	e0800003 	add	r0, r0, r3
+  84:	e020008c 	eor	r0, r0, ip, lsl #1
+  88:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+
+Disassembly of section .text.startup:
+
+00000000 <main>:
+   0:	e92d4010 	push	{r4, lr}
+   4:	e3a00064 	mov	r0, #100	@ 0x64
+   8:	ebfffffe 	bl	0 <main>
+   c:	e59f1010 	ldr	r1, [pc, #16]	@ 24 <main+0x24>
+  10:	e1a02000 	mov	r2, r0
+  14:	e3a00002 	mov	r0, #2
+  18:	ebfffffe 	bl	0 <__printf_chk>
+  1c:	e3a00000 	mov	r0, #0
+  20:	e8bd8010 	pop	{r4, pc}
+  24:	00000000 	.word	0x00000000

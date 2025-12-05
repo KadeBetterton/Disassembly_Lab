@@ -1,5 +1,5 @@
 
-build/mips/structs.o:     file format elf32-tradbigmips
+executables/mips/structs.o:     file format elf32-tradbigmips
 
 
 Disassembly of section .text:

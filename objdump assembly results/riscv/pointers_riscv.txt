@@ -1,5 +1,5 @@
 
-build/riscv/pointers.o:     file format elf64-littleriscv
+executables/riscv/pointers.o:     file format elf64-littleriscv
 
 
 Disassembly of section .text:

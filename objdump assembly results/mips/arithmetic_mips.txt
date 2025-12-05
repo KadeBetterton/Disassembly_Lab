@@ -1,5 +1,5 @@
 
-build/mips/arithmetic.o:     file format elf32-tradbigmips
+executables/mips/arithmetic.o:     file format elf32-tradbigmips
 
 
 Disassembly of section .text:

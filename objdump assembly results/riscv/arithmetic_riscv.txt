@@ -1,5 +1,5 @@
 
-build/riscv/arithmetic.o:     file format elf64-littleriscv
+executables/riscv/arithmetic.o:     file format elf64-littleriscv
 
 
 Disassembly of section .text:

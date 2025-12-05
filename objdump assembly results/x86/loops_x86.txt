@@ -1,5 +1,5 @@
 
-build/x86/loops.o:     file format elf64-x86-64
+executables/x86/loops.o:     file format elf64-x86-64
 
 
 Disassembly of section .text:

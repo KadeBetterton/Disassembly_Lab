@@ -1,5 +1,5 @@
 
-build/arm/loops.o:     file format elf32-littlearm
+executables/arm/loops.o:     file format elf32-littlearm
 
 
 Disassembly of section .text:

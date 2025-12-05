@@ -1,36 +1,42 @@
 #!/usr/bin/env bash
 set -e
 
-# Create output folders
-mkdir -p analysis/x86 analysis/arm analysis/mips analysis/riscv
+
+mkdir -p "objdump assembly results/x86" \
+         "objdump assembly results/arm" \
+         "objdump assembly results/mips" \
+         "objdump assembly results/riscv"
 
 FILES=(
-    "arithmetic/arithmetic"
-    "functions/functions"
-    "loops/loops"
-    "pointers/pointers"
-    "structs/structs"
+    "arithmetic"
+    "functions"
+    "loops"
+    "pointers"
+    "structs"
+    "unrolling"     
 )
 
-echo "=== Dumping objdump output for all ISAs ==="
 
 for f in "${FILES[@]}"; do
-    name=$(basename "$f")
+    name="$f"
 
     echo "---- Disassembling $name.o ----"
 
     # x86
-    objdump -d build/x86/$name.o > analysis/x86/${name}_x86.txt
+    objdump -d "executables/x86/$name.o" \
+        > "objdump assembly results/x86/${name}_x86.txt"
 
     # ARM
-    arm-linux-gnueabi-objdump -d build/arm/$name.o > analysis/arm/${name}_arm.txt
+    arm-linux-gnueabi-objdump -d "executables/arm/$name.o" \
+        > "objdump assembly results/arm/${name}_arm.txt"
 
     # MIPS
-    mips-linux-gnu-objdump -d build/mips/$name.o > analysis/mips/${name}_mips.txt
+    mips-linux-gnu-objdump -d "executables/mips/$name.o" \
+        > "objdump assembly results/mips/${name}_mips.txt"
 
     # RISC-V
-    riscv64-linux-gnu-objdump -d build/riscv/$name.o > analysis/riscv/${name}_riscv.txt
-
+    riscv64-linux-gnu-objdump -d "executables/riscv/$name.o" \
+        > "objdump assembly results/riscv/${name}_riscv.txt"
 done
 
 echo "=== All disassembly files created successfully ==="

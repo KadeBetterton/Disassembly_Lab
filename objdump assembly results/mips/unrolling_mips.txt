@@ -1,0 +1,80 @@
+
+executables/mips/unrolling.o:     file format elf32-tradbigmips
+
+
+Disassembly of section .text:
+
+00000000 <compute_sum>:
+   0:	70841002 	mul	v0,a0,a0
+   4:	24830003 	addiu	v1,a0,3
+   8:	24850001 	addiu	a1,a0,1
+   c:	00043040 	sll	a2,a0,0x1
+  10:	00055040 	sll	t2,a1,0x1
+  14:	24880005 	addiu	t0,a0,5
+  18:	00036840 	sll	t5,v1,0x1
+  1c:	00433821 	addu	a3,v0,v1
+  20:	24820004 	addiu	v0,a0,4
+  24:	00c73026 	xor	a2,a2,a3
+  28:	70a53802 	mul	a3,a1,a1
+  2c:	24850002 	addiu	a1,a0,2
+  30:	00026040 	sll	t4,v0,0x1
+  34:	00054840 	sll	t1,a1,0x1
+  38:	248b0008 	addiu	t3,a0,8
+  3c:	00e63021 	addu	a2,a3,a2
+  40:	24870006 	addiu	a3,a0,6
+  44:	00c23021 	addu	a2,a2,v0
+  48:	01463026 	xor	a2,t2,a2
+  4c:	70a55002 	mul	t2,a1,a1
+  50:	01462821 	addu	a1,t2,a2
+  54:	24860007 	addiu	a2,a0,7
+  58:	00a82821 	addu	a1,a1,t0
+  5c:	00085040 	sll	t2,t0,0x1
+  60:	01252826 	xor	a1,t1,a1
+  64:	70634802 	mul	t1,v1,v1
+  68:	01251821 	addu	v1,t1,a1
+  6c:	00072840 	sll	a1,a3,0x1
+  70:	00671821 	addu	v1,v1,a3
+  74:	24890009 	addiu	t1,a0,9
+  78:	01a31826 	xor	v1,t5,v1
+  7c:	70426802 	mul	t5,v0,v0
+  80:	2484000a 	addiu	a0,a0,10
+  84:	01a31021 	addu	v0,t5,v1
+  88:	00066840 	sll	t5,a2,0x1
+  8c:	00c21821 	addu	v1,a2,v0
+  90:	71081002 	mul	v0,t0,t0
+  94:	01831826 	xor	v1,t4,v1
+  98:	00434021 	addu	t0,v0,v1
+  9c:	70e71002 	mul	v0,a3,a3
+  a0:	01681821 	addu	v1,t3,t0
+  a4:	01431826 	xor	v1,t2,v1
+  a8:	00433821 	addu	a3,v0,v1
+  ac:	70c61002 	mul	v0,a2,a2
+  b0:	01271821 	addu	v1,t1,a3
+  b4:	00a31826 	xor	v1,a1,v1
+  b8:	00433021 	addu	a2,v0,v1
+  bc:	00862021 	addu	a0,a0,a2
+  c0:	03e00008 	jr	ra
+  c4:	01a41026 	xor	v0,t5,a0
+	...
+
+Disassembly of section .text.startup:
+
+00000000 <main>:
+   0:	3c1c0000 	lui	gp,0x0
+   4:	27bdffe0 	addiu	sp,sp,-32
+   8:	279c0000 	addiu	gp,gp,0
+   c:	afbf001c 	sw	ra,28(sp)
+  10:	afbc0010 	sw	gp,16(sp)
+  14:	0c000000 	jal	0 <main>
+  18:	24040064 	li	a0,100
+  1c:	3c050000 	lui	a1,0x0
+  20:	8fbc0010 	lw	gp,16(sp)
+  24:	24040002 	li	a0,2
+  28:	24a50000 	addiu	a1,a1,0
+  2c:	8f990000 	lw	t9,0(gp)
+  30:	0320f809 	jalr	t9
+  34:	00403025 	move	a2,v0
+  38:	00001025 	move	v0,zero
+  3c:	8fbf001c 	lw	ra,28(sp)
+  40:	03e00008 	jr	ra
+  44:	27bd0020 	addiu	sp,sp,32

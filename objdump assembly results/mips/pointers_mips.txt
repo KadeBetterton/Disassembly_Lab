@@ -1,5 +1,5 @@
 
-build/mips/pointers.o:     file format elf32-tradbigmips
+executables/mips/pointers.o:     file format elf32-tradbigmips
 
 
 Disassembly of section .text:
